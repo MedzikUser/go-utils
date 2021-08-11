@@ -1,0 +1,13 @@
+# Cache
+/.cache
+
+# DotFiles
+/.env
+/.env.*
+/*.env
+
+# Bin
+*.exe
+*.exe~
+*.out
+/dist/
