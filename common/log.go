@@ -8,16 +8,16 @@ import (
 
 /*
 	Info:
-		common.Log.Info("Info")
+		Log.Info("Info")
 
 	Debug:
-		common.Log.Debug("Debug")
+		Log.Debug("Debug")
 
 	Error:
-		common.Log.Error("Error")
+		Log.Error("Error")
 
 	Warn:
-		common.Log.Warn("Warn")
+		Log.Warn("Warn")
 */
 var Log = &logrus.Logger{
 	Out:       os.Stdout,

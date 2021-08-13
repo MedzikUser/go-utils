@@ -1,12 +1,11 @@
-package convert
+package utils
 
 import (
 	"strconv"
 	"time"
 )
 
-// FIXME:
-func Seconds(s time.Duration) string {
+func FormatSeconds(s time.Duration) string {
 	hours := Round(s.Hours())
 	minutes := Round(s.Minutes())
 	seconds := Round(s.Seconds())
@@ -53,6 +52,10 @@ func Seconds(s time.Duration) string {
 		}
 
 		format += strconv.Itoa(seconds) + "s"
+	}
+
+	if len(format) == 0 {
+		format = "0s"
 	}
 
 	return format
