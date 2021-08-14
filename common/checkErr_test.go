@@ -6,15 +6,15 @@ import (
 )
 
 func TestCheckErrTrue(T *testing.T) {
+	// true
 	err := errors.New("Test")
 	e := CheckErr(err, "test err")
 	if e != true {
 		T.Error(e)
 	}
-}
 
-func TestCheckErrFalse(T *testing.T) {
-	e := CheckErr(nil, "test err")
+	// false
+	e = CheckErr(nil, "test err")
 	if e != false {
 		T.Error(e)
 	}
