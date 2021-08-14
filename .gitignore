@@ -1,13 +1,14 @@
 # Cache
-/.cache
+.cache
 
-# DotFiles
-/.env
-/.env.*
-/*.env
+# Dot Files
+.env
+.env.*
+*.env
 
-# Bin
+# Binaries
 *.exe
 *.exe~
 *.out
+*.test
 /dist/
