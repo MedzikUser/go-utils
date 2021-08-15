@@ -21,20 +21,22 @@ type StatCPU struct {
 }
 
 // Get CPU stats
-func CPU() (*StatCPU, error) {
+func CPU() (StatCPU, error) {
 	pid := os.Getpid()
 
-	sysInfo, err := pidusage.GetStat(pid)
-	if err != nil {
-		return nil, err
-	}
-
 	stat := StatCPU{
-		Usage: fmt.Sprint(math.Round(sysInfo.CPU*100)/100, "%"),
 		Num:   runtime.NumCPU(),
 		Arch:  runtime.GOARCH,
 		pid: pid,
 	}
 
-	return &stat, nil
+	sysInfo, err := pidusage.GetStat(pid)
+	if err != nil {
+		stat.Usage = "error"
+		return stat, err
+	}
+
+	stat.Usage = fmt.Sprint(math.Round(sysInfo.CPU*100)/100, "%")
+
+	return stat, nil
 }

@@ -1,6 +1,10 @@
 package updater
 
-import "time"
+import (
+	"time"
+
+	"github.com/MedzikUser/go-utils/common"
+)
 
 /*
 	Auto checks for available updates
@@ -9,7 +13,8 @@ import "time"
 */
 func (c *Client) AutoUpdater() {
 	// Check on start
-	c.Update()
+	err := c.Update()
+	common.CheckErr(err, "AutoUpdater")
 
 	ticker := time.NewTicker(c.CheckEvery)
 
@@ -18,7 +23,8 @@ func (c *Client) AutoUpdater() {
 	for {
 		select {
 		case <-ticker.C:
-			c.Update()
+			err := c.Update()
+			common.CheckErr(err, "AutoUpdater")
 
 		case <-quit:
 			ticker.Stop()
