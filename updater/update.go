@@ -1,6 +1,7 @@
 package updater
 
 import (
+	"errors"
 	"os"
 
 	"github.com/MedzikUser/go-github-selfupdate/selfupdate"
@@ -23,8 +24,13 @@ func (c *Client) Update() error {
 	}
 
 	version, err := semver.Parse(c.Version)
+
 	if err != nil || !found || release.Version.LTE(version) {
 		return err
+	}
+
+	if !c.Major && release.Version.Major > version.Major {
+		return errors.New("major update")
 	}
 
 	exe, err := os.Executable()

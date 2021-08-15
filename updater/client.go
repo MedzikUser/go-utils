@@ -20,4 +20,9 @@ type Client struct {
 			}
 	*/
 	AfterUpdate func()
+
+	// Update Rules
+
+	// X.y.z
+	Major bool
 }
