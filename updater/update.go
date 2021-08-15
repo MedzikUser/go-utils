@@ -13,7 +13,11 @@ import (
 	If there is an update, this function will automatically update your program
 */
 func (c *Client) Update() error {
-	release, found, err := selfupdate.DetectLatest(c.GitHub)
+	updater, err := selfupdate.NewUpdater(selfupdate.Config{
+		APIToken: c.GitHubToken,
+	})
+
+	release, found, err := updater.DetectLatest(c.GitHub)
 	if err != nil {
 		return err
 	}
@@ -28,10 +32,12 @@ func (c *Client) Update() error {
 		return err
 	}
 
-	err = selfupdate.UpdateTo(release.AssetURL, exe, c.Binary)
+	err = updater.UpdateTo(release, exe, c.Binary)
 	if err != nil {
 		return err
 	}
+
+	c.AfterUpdate()
 
 	return nil
 }
