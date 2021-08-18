@@ -16,8 +16,6 @@ type StatCPU struct {
 	Num int
 	// CPU Arch
 	Arch string
-	// Process ID
-	pid int
 }
 
 // Get CPU stats
@@ -27,7 +25,6 @@ func CPU() (StatCPU, error) {
 	stat := StatCPU{
 		Num:   runtime.NumCPU(),
 		Arch:  runtime.GOARCH,
-		pid: pid,
 	}
 
 	sysInfo, err := pidusage.GetStat(pid)
