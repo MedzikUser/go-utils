@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// Format Seconds to days, hours, minutes and seconds example out. "10d 3m 59s"
 func FormatSeconds(s time.Duration) string {
 	hours := Round(s.Hours())
 	minutes := Round(s.Minutes())

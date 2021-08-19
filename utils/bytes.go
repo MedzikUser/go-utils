@@ -2,6 +2,11 @@ package utils
 
 import "fmt"
 
+/*
+	Format bytes e.g.
+		Bytes(53) // out: "53 B"
+		Bytes(1522) // out: "1.5 kB"
+*/
 func Bytes(b uint64) string {
 	const unit = 1000
 	if b < unit {

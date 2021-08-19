@@ -6,6 +6,7 @@ import (
 
 /*
 	This function checks for an error.
+
 	If the error isn't nil it return true and print error otherwise false.
 
 		err := errors.New("Test Error")
