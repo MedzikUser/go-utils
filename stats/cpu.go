@@ -23,8 +23,8 @@ func CPU() (StatCPU, error) {
 	pid := os.Getpid()
 
 	stat := StatCPU{
-		Num:   runtime.NumCPU(),
-		Arch:  runtime.GOARCH,
+		Num:  runtime.NumCPU(),
+		Arch: runtime.GOARCH,
 	}
 
 	sysInfo, err := pidusage.GetStat(pid)
