@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  tidy:
+  auto-fix:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,7 +23,7 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-      - name: Mod Tidy
+      - name: tidy
         run: |
           go mod tidy
           git add .
