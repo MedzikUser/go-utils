@@ -23,6 +23,6 @@ type Client struct {
 
 	// Update Rules
 
-	// X.y.z
+	// Should I update the major? (X.y.z)
 	Major bool
 }

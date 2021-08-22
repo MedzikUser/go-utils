@@ -8,7 +8,6 @@
 
 # Binaries
 *.exe
-*.exe~
 *.out
 *.test
 /dist/

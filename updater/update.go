@@ -17,6 +17,9 @@ func (c *Client) Update() error {
 	updater, err := selfupdate.NewUpdater(selfupdate.Config{
 		APIToken: c.GitHubToken,
 	})
+	if err != nil {
+		return err
+	}
 
 	release, found, err := updater.DetectLatest(c.GitHub)
 	if err != nil {

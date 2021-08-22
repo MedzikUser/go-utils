@@ -14,7 +14,7 @@ import (
 func (c *Client) AutoUpdater() {
 	// Check on start
 	err := c.Update()
-	common.CheckErr(err, "AutoUpdater")
+	common.CheckErr(err, "Auto Updater")
 
 	ticker := time.NewTicker(c.CheckEvery)
 
@@ -24,7 +24,7 @@ func (c *Client) AutoUpdater() {
 		select {
 		case <-ticker.C:
 			err := c.Update()
-			common.CheckErr(err, "AutoUpdater")
+			common.CheckErr(err, "Auto Updater")
 
 		case <-quit:
 			ticker.Stop()
