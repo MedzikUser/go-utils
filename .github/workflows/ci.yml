@@ -54,6 +54,12 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
 
+      - name: Repo clone (test)
+        if: github.event_name != 'pull_request'
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
       - name: Test
         run: go test -v ./...
 
