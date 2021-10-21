@@ -25,3 +25,7 @@ var Log = &logrus.Logger{
 	Hooks:     make(logrus.LevelHooks),
 	Level:     logrus.InfoLevel,
 }
+
+func init() {
+	Log.SetReportCaller(true)
+}
