@@ -2,7 +2,7 @@ package utils
 
 import "testing"
 
-func TestRound(t *testing.T) {
+func TestBytes(t *testing.T) {
 	// 1
 	r := Bytes(53)
 	if r != "53 B" {
